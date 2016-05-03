@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pyBMA
-Version: 0.1.dev3
+Version: 0.1.dev7
 Summary: Bayesian Model Averaging in Python
 Home-page: https://github.com/JakeColtman/pyBMA
 Author: Jake Coltman, Jacob Goodwin
