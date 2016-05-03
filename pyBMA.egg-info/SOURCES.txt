@@ -1,0 +1,6 @@
+setup.py
+pyBMA.egg-info/PKG-INFO
+pyBMA.egg-info/SOURCES.txt
+pyBMA.egg-info/dependency_links.txt
+pyBMA.egg-info/requires.txt
+pyBMA.egg-info/top_level.txt
