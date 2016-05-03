@@ -1,5 +1,6 @@
-from Survival.CoxPH import CoxPH
 from lifelines.datasets import load_rossi
+
+from pyBMA.Survival.CoxPH import CoxPH
 
 ##Replication of http://lifelines.readthedocs.io/en/latest/Survival%20Regression.html
 

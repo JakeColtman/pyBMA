@@ -1,5 +1,6 @@
-from . import CoxPHModel
 from math import exp
+
+from . import CoxPHModel
 
 
 class CoxPH:
@@ -57,7 +58,7 @@ class CoxPH:
 
     def create_model(self, covariate_names):
         return CoxPHModel.CoxPHModel(self.df, self.survival_col, self.cens_col, self.priors, self.reference_loglik,
-                          covariate_names)
+                                     covariate_names)
 
     def _set_reference_loglik(self):
         self.reference_loglik = self.full_model.loglik()
