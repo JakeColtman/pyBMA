@@ -12,7 +12,7 @@ setup(
     version='0.1.0dev1',
     description='Bayesian Model Averaging in Python',
     long_description=long_description,
-    url='https://github.com/marketinvoice/insights/tree/data_sync/StagingMerger',
+    url='https://github.com/JakeColtman/pyBMA',
     author='Jake Coltman, Jacob Goodwin',
     author_email='jakecoltman@sky.com',
     install_requires=[
