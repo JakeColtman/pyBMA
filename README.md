@@ -1,5 +1,7 @@
 # pyBMA
 
+# Note that at the moment this isn't fully functional and is waiting on leaps and bounds addition
+
 Bayesian Model Averaging in python
 
 This module is based on the R package BMA and implements Bayesian Model Averaging for the cox proportional hazards model.  
