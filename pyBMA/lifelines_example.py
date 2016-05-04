@@ -1,9 +1,9 @@
 from lifelines.datasets import load_rossi
 
-from pyBMA.Survival.CoxPH import CoxPH
+from pyBMA.CoxPHFitter import CoxPHFitter
 
 ##Replication of http://lifelines.readthedocs.io/en/latest/Survival%20Regression.html
 
-bmaCox = CoxPH(load_rossi(), "week", "arrest")
-posterior = bmaCox.run()
+bmaCox = CoxPHFitter()
+posterior = bmaCox.fit(load_rossi(), "week", event_col= "arrest")
 print(posterior[0])
