@@ -10,7 +10,7 @@ here = path.abspath(path.dirname(__file__))
 setup(
     name='pyBMA',
     packages=["pyBMA"],
-    version='0.1.dev14',
+    version='0.1.dev15',
     description='Bayesian Model Averaging in Python',
     long_description="Bayesian Model Averaging in Python",
     url='https://github.com/JakeColtman/pyBMA',
