@@ -1,5 +1,5 @@
 from math import exp
-
+import pandas as pd
 from pyBMA import CoxPHModel
 
 
@@ -9,27 +9,6 @@ class CoxPHFitter:
     h(t|x) = h_0(t)*exp(x'*beta)
     Fitting of individual models is done using lifelines
     """
-
-    def _generate_model_definnitions(self):
-        names, coefs, var = self.full_model.summary()
-        model1 = ["fin", "prio"]
-        model2 = ["race", "mar"]
-        model6 = ["race", "age"]
-        model3 = ["prio", "race"]
-        model4 = ["prio", "race", "mar"]
-        model5 = ["prio", "age", "mar"]
-        return [model1, model2, model3, model4, model5, model6]
-
-    def _weight_by_posterior(self, values, posterior):
-        def add_dataframes(dfone, dftwo):
-            return dfone.add(dftwo, fill_value=0)
-
-        output = zip(values, posterior)
-        weighted = [x[0] * x[1] for x in output]
-        running_total = weighted[0]
-        for i in range(1, len(weighted)):
-            running_total = add_dataframes(running_total, weighted[i])
-        return running_total
 
     def fit(self, df, duration_col, event_col, priors=None):
         """
@@ -71,11 +50,11 @@ class CoxPHFitter:
         else:
             self.priors = priors
         self.reference_loglik = None
-        self.full_model = self.create_model(None)
+        self.full_model = self._create_model(None)
         self._set_reference_loglik()
 
         models = self._generate_model_definnitions()
-        models = [self.create_model(x) for x in models]
+        models = [self._create_model(x) for x in models]
         bics = [x.bayesian_information_critera() for x in models]
         self.posterior_probabilities = []
         min_bic = min(bics)
@@ -89,11 +68,45 @@ class CoxPHFitter:
 
         self.coefficients_weighted = self._weight_by_posterior(coefficiencts_by_model, self.posterior_probabilities)
         self.sterr_weighted = self._weight_by_posterior(sterr_by_model, self.posterior_probabilities)
-        return self.coefficients_weighted, self.sterr_weighted
+        return self
 
-    def create_model(self, covariate_names):
+    @property
+    def summary(self):
+        """Details of the output.
+        Returns
+        -------
+        df : pd.DataFrame
+            Contains columns coef, exp(coef)"""
+
+        df = self.coefficients_weighted.to_frame()
+        df['exp(coef)'] = [exp(x) for x in df['coef']]
+        return df
+
+    def _create_model(self, covariate_names):
         return CoxPHModel.CoxPHModel(self.df, self.survival_col, self.cens_col, self.priors, self.reference_loglik,
                                      covariate_names)
 
     def _set_reference_loglik(self):
         self.reference_loglik = self.full_model.loglik()
+
+    def _generate_model_definnitions(self):
+        names, coefs, var = self.full_model.summary()
+        model1 = ["fin", "prio"]
+        model2 = ["race", "mar"]
+        model6 = ["race", "age"]
+        model3 = ["prio", "race"]
+        model4 = ["prio", "race", "mar"]
+        model5 = ["prio", "age", "mar"]
+        return [model1, model2, model3, model4, model5, model6]
+
+    def _weight_by_posterior(self, values, posterior):
+        def add_dataframes(dfone, dftwo):
+            return dfone.add(dftwo, fill_value=0)
+
+        output = zip(values, posterior)
+        weighted = [x[0] * x[1] for x in output]
+        running_total = weighted[0]
+        for i in range(1, len(weighted)):
+            running_total = add_dataframes(running_total, weighted[i])
+        return running_total
+
