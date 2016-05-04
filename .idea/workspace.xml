@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57bae588-7c67-4916-b15f-fc1e742f45a1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA.egg-info/PKG-INFO" afterPath="$PROJECT_DIR$/pyBMA.egg-info/PKG-INFO" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA.egg-info/SOURCES.txt" afterPath="$PROJECT_DIR$/pyBMA.egg-info/SOURCES.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA.egg-info/top_level.txt" afterPath="$PROJECT_DIR$/pyBMA.egg-info/top_level.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA/CoxPHFitter.py" afterPath="$PROJECT_DIR$/pyBMA/CoxPHFitter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA/lifelines_example.py" afterPath="$PROJECT_DIR$/pyBMA/lifelines_example.py" />
     </list>
     <ignored path="pyBMA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,8 +51,8 @@
       <file leaf-file-name="CoxPHFitter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pyBMA/CoxPHFitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68914956">
-              <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.6927536">
+              <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -379,6 +377,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="57bae588-7c67-4916-b15f-fc1e742f45a1" name="Default" comment="" />
@@ -398,7 +399,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31740615" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37030718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36239317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1552901" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -410,6 +411,14 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -507,8 +516,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pyBMA/CoxPHFitter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68914956">
-          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.6927536">
+          <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

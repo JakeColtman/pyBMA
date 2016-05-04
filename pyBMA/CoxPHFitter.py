@@ -43,31 +43,34 @@ class CoxPHFitter:
         """
 
         self.df = df
-        self.survival_col = duration_col
-        self.cens_col = event_col
-        if priors == None:
+        self.duration_col = duration_col
+        self.event_col = event_col
+
+        if priors is None:
+            # If no given prior choose an uniformative one
             self.priors = [0.5] * (len(self.df.columns) - 2)
         else:
             self.priors = priors
+
         self.reference_loglik = None
+
+        # Create a baseline model using all covariates.
         self.full_model = self._create_model(None)
         self._set_reference_loglik()
 
+        # Generate representative sample of model space
         models = self._generate_model_definnitions()
         models = [self._create_model(x) for x in models]
+
+        # Process log likihoods into posterior probabilities
         bics = [x.bayesian_information_critera() for x in models]
-        self.posterior_probabilities = []
-        min_bic = min(bics)
-        summation = sum([exp(-0.5 * (bic - min_bic)) for bic in bics])
-        for bic in bics:
-            posterior = (exp(-0.5 * (bic - min_bic))) / summation
-            self.posterior_probabilities.append(posterior)
+        self._generate_posteriors_from_bic(bics)
 
         coefficiencts_by_model = [x.summary()[1] for x in models]
+        self.coefficients_weighted = self._weight_by_posterior(coefficiencts_by_model)
         sterr_by_model = [x.summary()[2] for x in models]
+        self.sterr_weighted = self._weight_by_posterior(sterr_by_model)
 
-        self.coefficients_weighted = self._weight_by_posterior(coefficiencts_by_model, self.posterior_probabilities)
-        self.sterr_weighted = self._weight_by_posterior(sterr_by_model, self.posterior_probabilities)
         return self
 
     @property
@@ -83,7 +86,7 @@ class CoxPHFitter:
         return df
 
     def _create_model(self, covariate_names):
-        return CoxPHModel.CoxPHModel(self.df, self.survival_col, self.cens_col, self.priors, self.reference_loglik,
+        return CoxPHModel.CoxPHModel(self.df, self.duration_col, self.event_col, self.priors, self.reference_loglik,
                                      covariate_names)
 
     def _set_reference_loglik(self):
@@ -99,14 +102,21 @@ class CoxPHFitter:
         model5 = ["prio", "age", "mar"]
         return [model1, model2, model3, model4, model5, model6]
 
-    def _weight_by_posterior(self, values, posterior):
+    def _generate_posteriors_from_bic(self, bics):
+        self.posterior_probabilities = []
+        min_bic = min(bics)
+        summation = sum([exp(-0.5 * (bic - min_bic)) for bic in bics])
+        for bic in bics:
+            posterior = (exp(-0.5 * (bic - min_bic))) / summation
+            self.posterior_probabilities.append(posterior)
+
+    def _weight_by_posterior(self, values):
         def add_dataframes(dfone, dftwo):
             return dfone.add(dftwo, fill_value=0)
 
-        output = zip(values, posterior)
+        output = zip(values, self.posterior_probabilities)
         weighted = [x[0] * x[1] for x in output]
         running_total = weighted[0]
         for i in range(1, len(weighted)):
             running_total = add_dataframes(running_total, weighted[i])
         return running_total
-
