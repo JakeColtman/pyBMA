@@ -1,7 +1,8 @@
 from math import exp
 import pandas as pd
 from pyBMA import CoxPHModel
-
+from numpy.linalg import solve, norm, inv
+from itertools import combinations
 
 class CoxPHFitter:
     """
@@ -94,13 +95,13 @@ class CoxPHFitter:
 
     def _generate_model_definnitions(self):
         names, coefs, var = self.full_model.summary()
-        model1 = ["fin", "prio"]
-        model2 = ["race", "mar"]
-        model6 = ["race", "age"]
-        model3 = ["prio", "race"]
-        model4 = ["prio", "race", "mar"]
-        model5 = ["prio", "age", "mar"]
-        return [model1, model2, model3, model4, model5, model6]
+        variance_covariance = inv(-self.full_model._cf._hessian_)
+        all_models = []
+        for i in range(1, len(names)):
+            all_models.append(list(combinations(names, i)))
+        all_models = [list(item) for sublist in all_models for item in sublist]
+        print(all_models)
+        return all_models
 
     def _generate_posteriors_from_bic(self, bics):
         self.posterior_probabilities = []
