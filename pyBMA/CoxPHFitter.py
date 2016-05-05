@@ -100,7 +100,6 @@ class CoxPHFitter:
         for i in range(1, len(names)):
             all_models.append(list(combinations(names, i)))
         all_models = [list(item) for sublist in all_models for item in sublist]
-        print(all_models)
         return all_models
 
     def _generate_posteriors_from_bic(self, bics):

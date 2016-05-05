@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57bae588-7c67-4916-b15f-fc1e742f45a1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA.egg-info/PKG-INFO" afterPath="$PROJECT_DIR$/pyBMA.egg-info/PKG-INFO" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA.egg-info/SOURCES.txt" afterPath="$PROJECT_DIR$/pyBMA.egg-info/SOURCES.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyBMA.egg-info/top_level.txt" afterPath="$PROJECT_DIR$/pyBMA.egg-info/top_level.txt" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="CoxPHFitter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pyBMA/CoxPHFitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4256757">
-              <caret line="114" column="41" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.6891892">
+              <caret line="101" column="79" selection-start-line="101" selection-start-column="79" selection-end-line="101" selection-end-column="79" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -517,8 +516,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pyBMA/CoxPHFitter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4256757">
-          <caret line="114" column="41" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.6891892">
+          <caret line="101" column="79" selection-start-line="101" selection-start-column="79" selection-end-line="101" selection-end-column="79" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
